@@ -1,0 +1,5 @@
+spring:
+  security:
+    user:
+      name: rootuser
+      password: admin123
