@@ -18,7 +18,10 @@ import static org.springframework.security.config.Customizer.withDefaults;
 public class SecurityConfig {
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests((requests) -> requests.anyRequest().authenticated());
+        http.authorizeHttpRequests((requests) -> requests.requestMatchers("/helloAdmin").hasRole("ADMIN")
+                .requestMatchers("/helloUser").hasRole("USER")
+                .requestMatchers("/hello").permitAll()
+        );
         //http.formLogin(withDefaults());
         http.sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         http.httpBasic(withDefaults());

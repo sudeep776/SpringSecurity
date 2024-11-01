@@ -9,4 +9,14 @@ public class HelloController {
     public String  hello(){
         return "Hello";
     }
+
+    @GetMapping("/helloUser")
+    public String getUser(){
+        return "Hi User you are authenticated";
+    }
+
+    @GetMapping("/helloAdmin")
+    public String getAdmin(){
+        return "Hi Admin you are authenticated";
+    }
 }
