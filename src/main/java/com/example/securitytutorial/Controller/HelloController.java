@@ -1,5 +1,6 @@
 package com.example.securitytutorial.Controller;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,6 +11,7 @@ public class HelloController {
         return "Hello";
     }
 
+    @PreAuthorize("hasRole('USER')")
     @GetMapping("/helloUser")
     public String getUser(){
         return "Hi User you are authenticated";
