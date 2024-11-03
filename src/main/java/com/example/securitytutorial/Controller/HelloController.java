@@ -11,6 +11,11 @@ public class HelloController {
         return "Hello";
     }
 
+    @GetMapping("/helloAuth")
+    public String helloAuth(){
+        return "Hello you are authenticated";
+    }
+
     @PreAuthorize("hasRole('USER')")
     @GetMapping("/helloUser")
     public String getUser(){
